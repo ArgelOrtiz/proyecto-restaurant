@@ -5,11 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    session : false
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    estado_sesion(state, is_logged){
+      if(is_logged){
+        state.session = true
+      }
+    }
   }
 })
