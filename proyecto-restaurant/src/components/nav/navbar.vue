@@ -55,18 +55,24 @@
           <form class="form-inline">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Iniciar Sesion</a>
+                <a class="nav-link" href="#" v-b-modal.modal-1>Iniciar Sesion</a>
               </li>
             </ul>
           </form>
         </nav>
       </div>
     </header>
+    <modal-session></modal-session>
   </div>
 </template>
 
 <script>
-export default {};
+import ModalSession from '@/components/modal/modal-sesion';
+export default {
+  components : {
+    ModalSession
+  }
+};
 </script>
 
 <style scoped>
