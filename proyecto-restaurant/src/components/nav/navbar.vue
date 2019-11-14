@@ -41,6 +41,11 @@
                   <h4>Acerca de</h4>
                 </a>
               </li>
+              <li class= "nav-item" v-if = "show" @click = "redirige()">
+                <a class="nav-link" href="#">
+                  <h4>Usuarios</h4>
+                </a>
+              </li>
             </ul>
             <!-- <form class="form-inline my-2 my-lg-0">
             <input
@@ -71,7 +76,18 @@ import ModalSession from '@/components/modal/modal-sesion';
 export default {
   components : {
     ModalSession
-  }
+  },
+  data(){
+    return{
+      //esto lo manejas con la sesión creo
+      show : true
+    }
+  },
+  methods: {
+    redirige(){
+      this.$router.push("/usuario")
+    } 
+  },
 };
 </script>
 
