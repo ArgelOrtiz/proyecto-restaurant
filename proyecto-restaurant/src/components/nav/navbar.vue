@@ -1,69 +1,77 @@
 <template>
   <div>
-    <header class="nav-wrapper">
-      <div class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-          <a class="navbar-brand" href="#">
-            <img width="150px" src="/assets/dist/images/brand.png">
-            <!-- <h3>Restaurant ®</h3> -->
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+    <header role="banner" class="probootstrap-header text-center">
+      <div class="row">
+        <a href="index.html" class="probootstrap-logo visible-xs">
+          <img
+            src="/assets/dist/img/logo_sm.png"
+            class="hires"
+            width="120"
+            height="33"
+            alt="Free Bootstrap Template by uicookies.com"
+          />
+        </a>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
-                  <h4>Home</h4>
+        <a href="#" class="probootstrap-burger-menu visible-xs">
+          <i>Menu</i>
+        </a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li class="active">
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="about.html">Acerca de</a>
+            </li>
+            <li>
+              <a href="rooms.html">Menú</a>
+            </li>
+            <li class="hidden-xs probootstrap-logo-center">
+              <a href="index.html">
+                <img
+                  src="/assets/dist/img/logo_md.png"
+                  class="hires"
+                  width="181"
+                  height="50"
+                  alt="Free Bootstrap Template by uicookies.com"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="reservation.html">Promociones</a>
+            </li>
+            <li>
+              <a href="blog.html">Únete a nosotros</a>
+            </li>
+            <li>
+              <a href="contact.html">Contacto</a>
+            </li>
+          </ul>
+          <div class="extra-text visible-xs">
+            <a href="#" class="probootstrap-burger-menu">
+              <i>Menu</i>
+            </a>
+            <h5>Connect With Us</h5>
+            <ul class="social-buttons">
+              <li>
+                <a href="#">
+                  <i class="icon-twitter"></i>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <h4>Menú</h4>
+              <li>
+                <a href="#">
+                  <i class="icon-facebook2"></i>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <h4>Promociones</h4>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">
-                  <h4>Acerca de</h4>
-                </a>
-              </li>
-              <li class= "nav-item" v-if = "show" @click = "redirige()">
-                <a class="nav-link" href="#">
-                  <h4>Usuarios</h4>
+              <li>
+                <a href="#">
+                  <i class="icon-instagram2"></i>
                 </a>
               </li>
             </ul>
-            <!-- <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>-->
           </div>
-          <form class="form-inline">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#" v-b-modal.modal-1>Iniciar Sesion</a>
-              </li>
-            </ul>
-          </form>
         </nav>
       </div>
     </header>
@@ -92,25 +100,8 @@ export default {
 </script>
 
 <style scoped>
-/* .header {
-  background: url(/assets/dist/images/wallpaper.jpg) no-repeat center;
-  background-size: cover;
-  min-height: 100vh;
-}  */
-
-.navbar {
-  /* background-color: transparent !important; */
-  background-color: rgba(0, 0, 0, 0.2) !important;
-}
-.fixed-top {
-  position: absolute;
-  /* top: 0; */
-  /* right: 0; */
-  /* left: 0; */
-  z-index: 1030;
-}
-
-h4 {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+header {
+  justify-content: center !important;
+  display: inline-flex;
 }
 </style>
