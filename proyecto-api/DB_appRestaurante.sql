@@ -70,9 +70,12 @@ deleted_at DATETIME NULL
 -- tabla para las sesiones de usuarios
 
 CREATE TABLE `usuario_session` ( 
-`id_session` INT(11) NOT NULL , `id_usuario` INT(11) NOT NULL , 
+`id_session` INT(11) NOT NULL AUTO_INCREMENT, 
+`id_usuario` INT(11) NOT NULL , 
 `expired_date` DATETIME NOT NULL ,
 `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 `deleted_at` DATETIME NULL, 
 PRIMARY KEY (`id_session`)) ENGINE = InnoDB;
+
+ALTER TABLE `usuario_session` ADD `token` VARCHAR(200) NOT NULL AFTER `expired_date`;
