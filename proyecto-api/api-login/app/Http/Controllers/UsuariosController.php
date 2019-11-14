@@ -12,7 +12,7 @@ class UsuariosController extends Controller
     public function inicia_sesion (Request $request) {
         date_default_timezone_set('America/Mexico_City');
         $fecha_actual = date("Y-m-d H:i:s");
-        $fecha_mas_horas = strtotime('-8 hour', strtotime($fecha_actual));
+        $fecha_mas_horas = strtotime('+8 hour', strtotime($fecha_actual));
         $formato_fecha_mas_horas = date( 'Y-m-d H:i:s' , $fecha_mas_horas );
 
         $request->session()->flush();   // Eliminar el token actual
