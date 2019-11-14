@@ -1,5 +1,6 @@
 <template>
   <div>
+      <navbar></navbar>
       <b-card
             title="Card Title"
             img-src="https://picsum.photos/600/300/?image=25"
@@ -20,9 +21,11 @@
 
 <script>
 import Formulario from '@/components/formulario'
+import Navbar from '@/components/nav/navbar'
 export default {
     components: {
-        Formulario
+        Formulario,
+        Navbar
     }
 }
 </script>
