@@ -1,6 +1,6 @@
-create database appRestaurante;
+create database `app-restaurante`;
 
-use appRestaurante ;
+use `app-restaurante` ;
 
 create table USUARIO(
 id_usuario int auto_increment not null PRIMARY KEY,
@@ -74,5 +74,5 @@ CREATE TABLE `usuario_session` (
 `expired_date` DATETIME NOT NULL ,
 `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
 `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-`deleted_at` DATETIME NULL 
+`deleted_at` DATETIME NULL, 
 PRIMARY KEY (`id_session`)) ENGINE = InnoDB;
