@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/inicio-sesion', 'UsuariosController@inicia_sesion')->name('inicio-sesion');
+Route::get('/get-usuarios', 'UsuariosController@obten_usuarios')->name('get-usuarios')->middleware('session_usuario');
