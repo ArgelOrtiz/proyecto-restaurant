@@ -4,25 +4,25 @@
       <h2 class="mt0">Platillos</h2>
       <div class="container">
         <div class="row probootstrap-gutter10">
-          <div class="col-md-4">
+          <div v-for="(platillo, index) in productos" :key="index" class="col-md-4">
             <div class="probootstrap-block-image-text">
               <figure>
-                <a href="img/img_1.jpg" class="image-popup">
+                <a :href="platillo.img_url" class="image-popup">
                   <img
-                    src="/assets/dist/img/img_1.jpg"
-                    alt="Free HTML5 Bootstrap Template by uicookies.com"
+                    :src="platillo.img_url"
+                    :alt="platillo.nombre"
                     class="img-responsive"
                   />
                 </a>
-                <div class="actions">
+                <!-- <div class="actions">
                   <a href="https://vimeo.com/45830194" class="popup-vimeo">
                     <i class="icon-play2"></i>
                   </a>
-                </div>
+                </div> -->
               </figure>
               <div class="text">
                 <h3>
-                  <a href="#">Nombre del platillo</a>
+                  <a href="#">{{platillo.nombre}}</a>
                 </h3>
                 <div class="post-meta">
                   <ul>
@@ -31,11 +31,11 @@
                       <i class="icon-star"></i> 252 Pedidos
                     </li>
                     <li>
-                      <i class="icon-user2"></i> 3 En stock
+                      <i class="icon-user2"></i> {{platillo.stock}} En stock
                     </li>
                   </ul>
                 </div>
-                <p>Descripción del producto</p>
+                <p class="descripcion">{{platillo.descripcion}}</p>
                 <p>
                   <a href="#" class="btn btn-warning">Editar</a>
                   <a href="#" class="btn btn-danger">Eliminar</a>
@@ -50,7 +50,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <a @click="$refs.modal.open('modal')" href="#" class="btn btn-danger">Nuevo platillo</a>
+            <a @click="$refs.modal.open('modal')" href="#" class="btn btn-primary">Nuevo platillo</a>
           </div>
         </div>
       </div>
@@ -103,17 +103,23 @@
           <input type="file" class="form-control-file" id="platillo_imagen" />
         </div>
         <div class="form-check col-md-4">
-          <input class="form-check-input" type="checkbox" value id="check-status" />
-          <label class="form-check-label" for="check-status" style="margin-left: 15px !important;" >¿Activo?</label>
+          <input
+            v-model="info_nuevo_platillo.status"
+            class="form-check-input"
+            type="checkbox"
+            value
+            id="check-status"
+          />
+          <label
+            class="form-check-label"
+            for="check-status"
+            style="margin-left: 15px !important;"
+          >¿Activo?</label>
         </div>
       </div>
 
-      <sweet-button slot="button">
-        <button class="btn btn-success">Aceptar</button>
-      </sweet-button>
-      <sweet-button slot="button">
-        <button class="btn btn-danger">Cancelar</button>
-      </sweet-button>
+      <button slot="button" class="btn btn-success">Aceptar</button>
+      <button slot="button" class="btn btn-danger">Cancelar</button>
     </sweet-modal>
   </div>
 </template>
@@ -124,14 +130,23 @@ import { SweetModal } from "sweet-modal-vue";
 export default {
   data() {
     return {
-      platillos: [],
+      productos : [{
+        id_platillo: 0,
+        nombre: "",
+        precio: 0,
+        stock: 0,
+        descripcion: "",
+        status: false,
+        img_url: "",
+        imgObj: null
+      }],
       info_nuevo_platillo: {
         id_platillo: 0,
         nombre: "",
         precio: 0,
         stock: 0,
         descripcion: "",
-        estatus: false,
+        status: false,
         img_url: "",
         imgObj: null
       }
@@ -140,11 +155,24 @@ export default {
   components: {
     SweetModal
   },
-  methods: {
-    nuevo_producto : async function () {
-      
+  props : {
+    platillos : {
+      type : Array,
+      require : true
     }
   },
+  watch: {
+    platillos () {
+      this.productos = this.platillos
+    }
+  },
+  methods: {
+    nuevo_producto: async function() {
+
+    },
+  },
+  mounted() {
+  }
 };
 </script>
 
@@ -156,5 +184,15 @@ h2 {
 section {
   padding-top: 15px !important;
   padding-bottom: 15px !important;
+}
+
+.descripcion{
+  max-height: 190px !important;
+  overflow: scroll;
+  overflow-x : hidden;
+}
+
+img.img-responsive{
+  max-height: 150px !important;
 }
 </style>

@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-    <platillos></platillos>
+    <platillos :platillos="platillos"></platillos>
     <!-- <section class="probootstrap-section probootstrap-section-dark">
       <h2 class="mt0">Bebidas</h2>
       <div class="container">
@@ -107,11 +107,50 @@
 <script>
 import NavBar from "@/components/nav/navbar";
 import Platillos from "@/components/admin-productos/platillos";
+// import axios from "axios";
+import API from "@/api/api-admin-cocineros";
 
 export default {
+  data() {
+    return {
+      productos : {},
+      platillos : [],
+      bebidas : [],
+      postres : []
+    }
+  },
   components: {
     NavBar,
     Platillos
+  },
+  methods: {
+    get_productos: async function() {
+      // axios
+      //   .get(`http://127.0.0.1:8000/get-productos`)
+      //   .then(response => {
+      //     // JSON responses are automatically parsed.
+      //     this.productos = response.data;
+      //     this.platillos = this.productos.platillos
+      //     this.bebidas = this.productos.bebidas
+      //     this.postres = this.productos.postres
+      //   })
+      //   .catch(e => {
+      //     this.productos = [];
+      //     this.platillos = [];
+      //     this.bebidas = [];
+      //     this.postres = [];
+      //     this.errors.push(e);
+      //   });
+      const consulta = await API.cocineros.productos()
+
+      this.productos = consulta.data
+      this.platillos = this.productos.platillos
+      this.bebidas = this.productos.bebidas
+      this.postres = this.productos.postres
+    }
+  },
+  mounted() {
+    this.get_productos();
   }
 };
 </script>
