@@ -22,4 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/get-productos', 'ProductoController@get_productos')->name('inicio-sesion');
+Route::get('/get-productos', 'ProductoController@get_productos')->name('get-productos');
+Route::post('/nuevo-producto', 'ProductoController@nuevo_producto')->name('nuevo-producto');
+Route::post('/eliminar-producto', 'ProductoController@eliminar_producto')->name('eliminar-producto');
+Route::post('/editar-producto', 'ProductoController@editar_producto')->name('editar-producto');

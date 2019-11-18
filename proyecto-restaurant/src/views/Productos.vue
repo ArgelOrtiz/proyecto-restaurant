@@ -10,7 +10,7 @@
         </div>
       </div>
     </section>
-    <platillos :platillos="platillos"></platillos>
+    <platillos :platillos="platillos" @reload="reload()"></platillos>
     <!-- <section class="probootstrap-section probootstrap-section-dark">
       <h2 class="mt0">Bebidas</h2>
       <div class="container">
@@ -141,6 +141,14 @@ export default {
       //     this.postres = [];
       //     this.errors.push(e);
       //   });
+      const consulta = await API.cocineros.productos()
+
+      this.productos = consulta.data
+      this.platillos = this.productos.platillos
+      this.bebidas = this.productos.bebidas
+      this.postres = this.productos.postres
+    },
+    reload : async function () {
       const consulta = await API.cocineros.productos()
 
       this.productos = consulta.data
