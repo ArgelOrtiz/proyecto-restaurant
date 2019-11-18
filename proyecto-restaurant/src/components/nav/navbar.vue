@@ -43,17 +43,17 @@
               <a href="reservation.html">Promociones</a>
             </li>
             <li>
-              <a href="blog.html">Únete a nosotros</a>
+              <a href="blog.html">Contacto</a>
             </li>
             <li>
-              <a href="contact.html">Contacto</a>
+              <a href="contact.html">Iniciar sesion</a>
             </li>
           </ul>
           <div class="extra-text visible-xs">
             <a href="#" class="probootstrap-burger-menu">
               <i>Menu</i>
             </a>
-            <h5>Connect With Us</h5>
+            <h5>Contactanos</h5>
             <ul class="social-buttons">
               <li>
                 <a href="#">
