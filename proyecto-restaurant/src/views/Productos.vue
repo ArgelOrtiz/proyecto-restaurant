@@ -11,6 +11,8 @@
       </div>
     </section>
     <platillos :platillos="platillos" @reload="reload()"></platillos>
+    <bebidas :platillos="bebidas" @reload="reload()"></bebidas>
+    <postres :platillos="postres" @reload="reload()"></postres>
     <!-- <section class="probootstrap-section probootstrap-section-dark">
       <h2 class="mt0">Bebidas</h2>
       <div class="container">
@@ -107,6 +109,8 @@
 <script>
 import NavBar from "@/components/nav/navbar";
 import Platillos from "@/components/admin-productos/platillos";
+import Bebidas from "@/components/admin-productos/bebidas";
+import Postres from "@/components/admin-productos/postres";
 // import axios from "axios";
 import API from "@/api/api-admin-cocineros";
 
@@ -121,7 +125,9 @@ export default {
   },
   components: {
     NavBar,
-    Platillos
+    Platillos,
+    Bebidas,
+    Postres
   },
   methods: {
     get_productos: async function() {
