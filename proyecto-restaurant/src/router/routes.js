@@ -43,6 +43,13 @@ export default [
     component: () => import(/* webpackChunkName: "admin" */ '../views/Productos.vue'),
     meta : {
       title : 'Administración de productos'
-    }
+    },
+    {
+    path: '/comandas',
+    name: 'comandas',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "admin" */ '../views/Comandas.vue')
   }
 ]
