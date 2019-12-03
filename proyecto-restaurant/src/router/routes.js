@@ -43,7 +43,8 @@ export default [
     component: () => import(/* webpackChunkName: "admin" */ '../views/Productos.vue'),
     meta : {
       title : 'Administración de productos'
-    },
+    }
+  },
     {
     path: '/comandas',
     name: 'comandas',
