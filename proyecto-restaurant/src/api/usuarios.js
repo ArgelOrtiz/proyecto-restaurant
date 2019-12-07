@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from "qs"
 
-const usuarios         = ()             => axios.get ('get-usuarios');
+const get_usuarios         = ()             => axios.get ('get-usuarios');
 const nuevo_usuario    = (info_usuario) => axios.post(`nuevo-usuario`   , qs.stringify({
       usuario: info_usuario
 }))
@@ -16,7 +16,7 @@ export default {
   // editar,
   // cosultar,
   // añadir,
-  usuarios        ,
+  get_usuarios        ,
   nuevo_usuario   ,
   eliminar_usuario,
   editar_usuario

@@ -1,86 +1,53 @@
 <template>
   <div>
-   <div>
-    <b-container>
-      <b-row>
-        <b-col cols = "12" md = "auto">
-          <h2>CRUD Usuarios</h2>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols = "4" md = "auto">
-         <b-button v-b-modal.modal-usr>Agregar</b-button>
-        </b-col>
-      </b-row>
-    </b-container>
-   </div>
-    <div>
-     <b-container>
-       <b-table
-         striped
-         hover
-         :items  = "registros"
-         :fields = "columnas">
-       </b-table>
-      </b-container>
-    </div>
-    <modal-usr></modal-usr>
+    <nav-bar></nav-bar>
+    <section class="probootstrap-cta probootstrap-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="probootstrap-cta-heading">Administración de usuarios</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <usuarios :arr_usuarios ="arr_usuarios" @reload="reload()"></usuarios>
   </div>
 </template>
 
 <script>
-import ModalUsr from '@/components/modal/modal-usuario';
+import NavBar   from "@/components/nav/navbar";
+import Usuarios from "@/components/admin-usuarios/usuarios";
+import API      from "@/api/api-admin-usuarios";
+
 export default {
-  components : {
-    ModalUsr
-  },
-  data(){
-    return{
-      columnas: [
-        {
-          key:       'id',
-          label:     'ID',
-          sortable: true
-        },
-        {
-          key:  'usuario',
-          label:'Usuario',
-          sortable: true
-        },
-        {
-          key:   'nombre',
-          label: 'Nombre',
-          sortable: true
-        },
-        {
-          key:  'apellido',
-          label:'Apellido',
-          sortable: true
-        },
-        {
-          key:  'estatus',
-          label:    'Rol',
-          sortable: true
-        },
-        {
-          key:           'fechcrea',
-          label:'Fecha de creación',
-          sortable: true
-        }
-      ],
-      registros:[
-        { isActive: true, id: 10, usuario: 'Zodom'     , nombre: 'José Martín'    , apellido: 'Ruíz Coss'       , estatus: "Administrador", fechcrea: '2019-11-13 23:31:51' },
-        { isActive: true, id: 14, usuario: 'Gosth-dark', nombre: 'Angel Christian', apellido: 'Álvarez Trujillo', estatus: "Administrador", fechcrea: '2019-11-14 17:06:52' },
-        { isActive: true, id: 16, usuario: 'Superior'  , nombre: 'Aldo'           , apellido: 'Cardona Medina'  , estatus: "Administrador", fechcrea: '2019-11-11 11:13:16' },
-        { isActive: true, id: 17, usuario: 'Glitch'    , nombre: 'Juan Silvestre' , apellido: 'Ramírez Becerra' , estatus: "Usuario      ", fechcrea: '2019-11-09 12:45:34' },
-        { isActive: true, id: 19, usuario: 'Jimbo'     , nombre: 'Jaime'          , apellido: 'Bueno Esparza'   , estatus: "Usuario"      , fechcrea: '2019-11-07 09:37:26' },
-        { isActive: true, id: 23, usuario: 'Jajargel'  , nombre: 'Argel'          , apellido: 'Ortiz Arenas'    , estatus: "Usuario"      , fechcrea: '2019-11-04 15:07:19' },
-      ]
+  data() {
+    return {
+      arr_usuarios : []
     }
-  }
-}
+  },
+
+  components:{
+    NavBar,
+    Usuarios
+  },
+  methods: {
+    get_usuarios: async function(){
+
+      const consulta    = await API.usuarios.get_usuarios()
+      this.arr_usuarios =  consulta.data
+    },
+
+    reload:       async function(){
+
+      const consulta    = await API.usuarios.get_usuarios()
+      this.arr_usuarios =  consulta.data
+    }
+    
+    
+  },
+  mounted() {
+    this.get_usuarios();
+  },
+};
+
 </script>
-
-<style>
-
-</style>

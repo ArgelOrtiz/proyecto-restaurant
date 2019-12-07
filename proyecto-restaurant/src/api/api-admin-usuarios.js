@@ -1,10 +1,10 @@
 import axios from 'axios'
 import usuarios from './usuarios'
 
-axios.defaults.baseURL = 'http://localhost:8000/' // BASE-URL API
+axios.defaults.baseURL                        = 'http://localhost:8000/' // BASE-URL API
 
 axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
-axios.defaults.headers.common.Accept = 'application/json'
+axios.defaults.headers.common.Accept          = 'application/json'
 
 axios.interceptors.request.use((request) => {
   return request;
