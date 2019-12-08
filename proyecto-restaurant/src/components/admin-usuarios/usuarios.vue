@@ -1,55 +1,160 @@
 <template>
   <div>
-   <section class="probootstrap-slider flexslider probootstrap-inner">
-    <ul class="slides">
-       <li style="background-image: url(/assets/dist/img/slider_1.jpg);" class="overlay">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                <div class="probootstrap-slider-text text-center">
-                  <p><img src="/assets/dist/img/curve_white.svg" class="seperator probootstrap-animate" alt="Free HTML5 Bootstrap Template"></p>
-                  <h1 class="probootstrap-heading probootstrap-animate">Usuarios</h1>
-                  <div class="probootstrap-animate probootstrap-sub-wrap">Sección para la administración de usuarios</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-    </ul>
-  </section>
 
-  <section class="probootstrap-section">
-    <!-- contenido -->
-    <div class="container">
-      <div class="row">
-        <b-col align="right" lg="12" class="pb-2">
-          <b-button variant="info" size = "lg">Agregar usuario</b-button>
-        </b-col>
-      </div>
-      <div class="row">
-        <b-col lg="12">
+    <section class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <b-col lg="12">
+            <b-table>
 
-        </b-col>
+            </b-table>
+          </b-col>
+        </div>
       </div>
-    </div>
-  </section>
-  
-   <modal-usr></modal-usr>
-  </div>
+
+    </section>
+    <!--Modals-->
+    <sweet-modal
+      ref="modal"
+      overlay-theme="dark"
+      title="Nuevo platillo"
+    >
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="usuario_nickname">Usuario o nickname</label>
+          <input
+            v-model="nuevo_usuario_data.usuario"
+            type="text"
+            class="form-control"
+            id="usuario_nickname"
+            placeholder="Ingresa nickname o alias"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="usuario_pass">Contraseña</label>
+          <input
+            v-model="nuevo_usuario_data.contrasena"
+            type="password"
+            class="form-control"
+            id="usuario_pass"
+            placeholder="Ingresa contraseña"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="usuario_nombre">Nombre</label>
+          <input
+            v-model="nuevo_usuario_data.nombre"
+            type="text"
+            class="form-control"
+            id="usuario_nombre"
+            placeholder="Ingresa tu nombre"
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label for="usuario_apellidos">Apellidos</label>
+          <input
+            v-model="nuevo_usuario_data.apellido"
+            type="text"
+            class="form-control"
+            id="usuario_apellidos"
+            placeholder="Ingresa tu(s) apellido(s)"
+          />
+        </div>
+        <div class="form-check col-md-4">
+          <label
+            class="form-check-label"
+            for="usuario_estatus"
+            style="margin-left: 15px !important;"
+          >¿Activo?</label>
+          <input
+            v-model="nuevo_usuario_data.estatus"
+            type="checkbox"
+            class="form-check-input"
+            value
+            id="usuario_estatus"
+          />
+        </div>
+        <div class="form-row">
+          <b-form-group
+            id="rolGroup"
+            label="Rol:"
+            label-for="selectRol"
+          >
+            <b-form-select
+              id="selectRol"
+              v-model="usrForm.rol"
+              :options="rol"
+              required
+            >
+            </b-form-select>
+        </div>
+      </div>
+      <button
+        slot="button"
+        class="btn btn-success"
+        @click="nuevo_usuario()"
+      >Aceptar</button>
+      <button
+        slot="button"
+        class="btn btn-danger"
+        @click="cancelar_edicion()"
+      >Cancelar</button>
+    </sweet-modal>
 </template>
 
 <script>
-import ModalUsr from '@/components/modal/modal-usuario';
+import { SweetModal } from "sweet-modal-vue";
 
 export default {
-  components:{
-    ModalUsr
+  components: {
+    SweetModal
   },
-  data(){
-    return{
-
+  data() {
+    return {
+      usuarios: [
+        {
+          id_usuario = 0,
+          usuario    = "",
+          contrasena = "",
+          nombre     = "",
+          apellido   = "",
+          estatus    = false
+        }
+      ],
+      nuevo_usuario_data: {
+        id_usuario = 0,
+        usuario    = "",
+        contrasena = "",
+        nombre     = "",
+        apellido   = "",
+        estatus    = false
+      },
+      edicion_usuario_data: {
+        id_usuario = 0,
+        usuario    = "",
+        contrasena = "",
+        nombre     = "",
+        apellido   = "",
+        estatus    = false
+      },
+      rol: [{ text: 'Clic para deslegar roles', value: null }, "Usuario", "Administrador"],
+      show: true
+    };
+  },
+  props: {
+    usuarios: {
+      type: Array,
+      require: true
     }
+  },
+  watch: {
 
-  }
+  },
 }
 </script>

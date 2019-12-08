@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get ('/get-usuarios'    , 'UsuarioController@get_usuarios'    )->name('get-usuarios'    );
+Route::post('/nuevo-usuario'   , 'UsuarioController@nuevo_usuario'   )->name('nuevo-usuario'   );
+Route::post('/eliminar-usuario', 'UsuarioController@eliminar_usuario')->name('eliminar-usuario');
+Route::post('/editar-usuario'  , 'UsuarioController@editar_usuario'  )->name('editar-usuario'  );

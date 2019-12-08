@@ -1,15 +1,34 @@
 <template>
   <div>
     <nav-bar></nav-bar>
-    <section class="probootstrap-cta probootstrap-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="probootstrap-cta-heading">Administración de usuarios</h2>
+    <section class="probootstrap-slider flexslider probootstrap-inner">
+    <ul class="slides">
+       <li style="background-image: url(/assets/dist/img/slider_1.jpg);" class="overlay">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="probootstrap-slider-text text-center">
+                  <p><img src="/assets/dist/img/curve_white.svg" class="seperator" ></p>
+                  <h1 class="probootstrap-heading ">Usuarios</h1>
+                  <div class="probootstrap-sub-wrap">Sección para la administración de usuarios</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </li>
+    </ul>
+  </section>
+  <section class="probootstrap-section">
+    <!-- contenido -->
+    <div class="container">
+      <div class="row">
+        <b-col align="right" lg="12" class="pb-2">
+          <b-button  v-b-modal.modal-usr variant="info" size = "lg">Agregar usuario</b-button>
+        </b-col>
       </div>
-    </section>
+    </div>
+  </section>
+
     <usuarios :arr_usuarios ="arr_usuarios" @reload="reload()"></usuarios>
   </div>
 </template>
