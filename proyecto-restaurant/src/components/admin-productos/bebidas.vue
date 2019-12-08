@@ -60,7 +60,7 @@
             v-model="info_nuevo_platillo.nombre"
             type="text"
             class="form-control"
-            id="nombre_platillo"
+            
             placeholder="Bebida"
           />
         </div>
@@ -70,7 +70,7 @@
             v-model.number="info_nuevo_platillo.precio"
             type="number"
             class="form-control"
-            id="precio-platillo"
+            
             placeholder="$ 0.00 MXN"
           />
         </div>
@@ -80,7 +80,7 @@
             v-model.number="info_nuevo_platillo.stock"
             type="number"
             class="form-control"
-            id="stock-platillo"
+            
             placeholder="Piezas o porciones"
           />
         </div>
@@ -90,14 +90,14 @@
         <textarea
           v-model="info_nuevo_platillo.descripcion"
           class="form-control"
-          id="descripcion-platillo"
+          
           rows="3"
         ></textarea>
       </div>
       <div class="form-row">
         <div class="form-group col-md-8">
           <label for="platillo_imagen">Imagen del producto</label>
-          <input type="file" class="form-control-file" id="platillo_imagen" />
+          <input type="file" class="form-control-file" />
         </div>
         <div class="form-check col-md-4">
           <input
@@ -105,7 +105,6 @@
             class="form-check-input"
             type="checkbox"
             value
-            id="check-status"
           />
           <label
             class="form-check-label"
@@ -126,7 +125,7 @@
             v-model="info_edicion_platillo.nombre"
             type="text"
             class="form-control"
-            id="nombre_platillo_edit"
+            
             placeholder="Bebida"
           />
         </div>
@@ -136,7 +135,7 @@
             v-model.number="info_edicion_platillo.precio"
             type="number"
             class="form-control"
-            id="precio-platillo_edit"
+            
             placeholder="$ 0.00 MXN"
           />
         </div>
@@ -146,7 +145,7 @@
             v-model.number="info_edicion_platillo.stock"
             type="number"
             class="form-control"
-            id="stock-platillo_edit"
+            
             placeholder="Piezas o porciones"
           />
         </div>
@@ -156,14 +155,14 @@
         <textarea
           v-model="info_edicion_platillo.descripcion"
           class="form-control"
-          id="descripcion-platillo_edit"
+          
           rows="3"
         ></textarea>
       </div>
       <div class="form-row">
         <div class="form-group col-md-8">
           <label for="platillo_imagen_edit">Imagen del producto</label>
-          <input type="file" class="form-control-file" id="platillo_imagen_edit" />
+          <input type="file" class="form-control-file" />
         </div>
         <div class="form-check col-md-4">
           <input
@@ -171,7 +170,6 @@
             class="form-check-input"
             type="checkbox"
             value
-            id="check-status-edit"
           />
           <label
             class="form-check-label"
