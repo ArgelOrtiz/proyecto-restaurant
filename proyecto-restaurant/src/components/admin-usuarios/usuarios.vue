@@ -93,6 +93,7 @@
               required
             >
             </b-form-select>
+          </b-form-group>
         </div>
       </div>
       <button
@@ -106,6 +107,7 @@
         @click="cancelar_edicion()"
       >Cancelar</button>
     </sweet-modal>
+  </div>
 </template>
 
 <script>
@@ -117,31 +119,31 @@ export default {
   },
   data() {
     return {
-      usuarios: [
+      users: [
         {
-          id_usuario = 0,
-          usuario    = "",
-          contrasena = "",
-          nombre     = "",
-          apellido   = "",
-          estatus    = false
+          id_usuario : 0,
+          usuario    : "",
+          contrasena : "",
+          nombre     : "",
+          apellido   : "",
+          estatus    : false
         }
       ],
       nuevo_usuario_data: {
-        id_usuario = 0,
-        usuario    = "",
-        contrasena = "",
-        nombre     = "",
-        apellido   = "",
-        estatus    = false
+        id_usuario : 0,
+        usuario    : "",
+        contrasena : "",
+        nombre     : "",
+        apellido   : "",
+        estatus    : false
       },
       edicion_usuario_data: {
-        id_usuario = 0,
-        usuario    = "",
-        contrasena = "",
-        nombre     = "",
-        apellido   = "",
-        estatus    = false
+        id_usuario : 0,
+        usuario    : "",
+        contrasena : "",
+        nombre     : "",
+        apellido   : "",
+        estatus    : false
       },
       rol: [{ text: 'Clic para deslegar roles', value: null }, "Usuario", "Administrador"],
       show: true
