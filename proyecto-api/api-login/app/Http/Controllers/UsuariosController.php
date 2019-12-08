@@ -53,6 +53,12 @@ class UsuariosController extends Controller
         // return response()->json(["atributo" => 1]);
     }
 
+    public function cierra_sesion(Request $request) {
+        $request->session()->flush();   // Eliminar el token actual
+
+        return response()->json(["message" => "Sesion cerrada"]);
+    }
+
     public function obten_usuarios (Request $request) {
         return response()->json(["usuarios" => Usuario::all()]);
     }
