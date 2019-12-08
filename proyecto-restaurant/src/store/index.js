@@ -11,6 +11,8 @@ export default new Vuex.Store({
     estado_sesion(state, is_logged){
       if(is_logged){
         state.session = true
+      }else {
+        state.session = false
       }
     }
   }

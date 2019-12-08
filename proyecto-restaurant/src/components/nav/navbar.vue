@@ -45,8 +45,11 @@
             <li>
               <a href="blog.html">Contacto</a>
             </li>
-            <li>
+            <li v-if="!$store.state.session">
               <a @click="$refs.modal_session.open()">Iniciar sesion</a>
+            </li>
+            <li v-else>
+              <a @click="cerrar_sesion()">Cerrar sesion</a>
             </li>
           </ul>
           <div class="extra-text visible-xs">
@@ -80,18 +83,20 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Usuario</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="staticEmail" />
+          <input v-model="usr" type="text" class="form-control" id="staticEmail" />
         </div>
       </div>
       <div class="form-group row">
         <label for="inputPassword" class="col-sm-2 col-form-label">Contraseña</label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" />
+          <input v-model="pass" type="password" class="form-control" id="inputPassword" placeholder="Contraseña" />
         </div>
       </div>
-
+        <div class="col-md-12">
+          <label class="text-danger">{{message}}</label>
+        </div>
       <button slot="button" class="btn btn-danger" @click="$refs.modal_session.close()">Cerrar</button>
-      <button slot="button" class="btn btn-success">Aceptar</button>
+      <button slot="button" class="btn btn-success" @click="iniciar_sesion()">Aceptar</button>
     </sweet-modal>
   </div>
 </template>
@@ -99,6 +104,8 @@
 <script>
 // import ModalSession from '@/components/modal/modal-sesion';
 import { SweetModal } from 'sweet-modal-vue'
+import API from "@/api/api-sesiones";
+import {mapState} from 'vuex'
 
 export default {
   components : {
@@ -107,13 +114,41 @@ export default {
   data(){
     return{
       //esto lo manejas con la sesión creo
-      show : true
+      show : true,
+      usr : null,
+      pass : null,
+      message : null
     }
+  },
+  computed : {
+    ...mapState(['session']),
   },
   methods: {
     redirige(){
       this.$router.push("/usuario")
-    } 
+    },
+    async iniciar_sesion() {
+      const sesion = await API.sesiones.inicia_sesion(this.usr, this.pass)
+
+      if(sesion.data.status == 1){
+        this.message = null
+        this.$store.commit('estado_sesion', true,{root: true})
+
+        this.$refs.modal_session.close()
+      }else {
+        this.message = sesion.data.message
+        this.$store.commit('estado_sesion', false,{root: true})
+      }
+    },
+    async cerrar_sesion () {
+      if(confirm('¿Cerrar sesion?')){
+        const sesion = await API.sesiones.cierra_sesion()
+
+        alert(sesion.data.message)
+
+        this.$store.commit('estado_sesion', false,{root: true})
+      }
+    }
   },
 };
 </script>
