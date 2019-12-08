@@ -81,3 +81,6 @@ PRIMARY KEY (`id_session`)) ENGINE = InnoDB;
 ALTER TABLE `usuario_session` ADD `token` VARCHAR(200) NOT NULL AFTER `expired_date`;
 
 ALTER TABLE `producto`        ADD `stock` INT(11)      NOT NULL AFTER `img_url`;
+
+-- tipo de usuario
+ALTER TABLE `usuario` ADD `tipo` INT(11) NOT NULL AFTER `apellido`;

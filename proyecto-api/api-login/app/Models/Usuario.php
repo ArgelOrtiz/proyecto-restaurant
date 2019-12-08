@@ -14,6 +14,7 @@ class Usuario extends Model
         "contrasena",
         "nombre",
         "apellido",
+        "tipo",
         "estatus"
     ];
 
