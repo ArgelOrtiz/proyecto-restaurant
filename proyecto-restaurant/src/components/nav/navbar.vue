@@ -46,7 +46,7 @@
               <a href="blog.html">Contacto</a>
             </li>
             <li>
-              <a href="contact.html">Iniciar sesion</a>
+              <a href="" data-toggle="modal" data-target="#modal-1">Iniciar sesion</a>
             </li>
           </ul>
           <div class="extra-text visible-xs">
