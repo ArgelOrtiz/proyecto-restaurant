@@ -1,7 +1,7 @@
 import axios from 'axios'
 import usuarios from './usuarios'
 
-axios.defaults.baseURL                        = 'http://127.0.0.1:8000/' // BASE-URL API
+axios.defaults.baseURL                        = 'http://127.0.0.1:8002/' // BASE-URL API
 
 axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.headers.common.Accept          = 'application/json'
