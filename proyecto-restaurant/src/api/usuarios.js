@@ -8,8 +8,8 @@ const nuevo_usuario    = (info_usuario) => axios.post('nuevo-usuario'   , qs.str
 const eliminar_usuario = (id_usuario)   => axios.post('eliminar-usuario', qs.stringify({
       id_usuario: id_usuario
 }))
-const editar_usuario   = (info_usuario) => axios.post('editar-usuario' , qs.stringify({
-      usuairo: info_usuario
+const editar_usuario   = (info_usuario) => axios.post('editar-usuario'  , qs.stringify({
+      usuario: info_usuario
 }))
 
 export default {

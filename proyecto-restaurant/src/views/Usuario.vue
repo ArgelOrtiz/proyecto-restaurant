@@ -18,18 +18,7 @@
         </li>
     </ul>
   </section>
-  <section class="probootstrap-section">
-    <!-- contenido -->
-    <div class="container">
-      <div class="row">
-        <b-col align="right" lg="12" class="pb-2">
-          <b-button  v-b-modal.modal-usr variant="info" size = "lg">Agregar usuario</b-button>
-        </b-col>
-      </div>
-    </div>
-  </section>
-
-    <usuarios :arr_usuarios ="arr_usuarios" @reload="reload()"></usuarios>
+  <usuarios :users ="arr_usuarios" @reload="reload()"></usuarios>
   </div>
 </template>
 
