@@ -25,6 +25,7 @@ class UsuarioController extends Controller
       $contrasena   = $info_usuario['contrasena']; 
       $nombre       = $info_usuario['nombre'    ];
       $apellido     = $info_usuario['apellido'  ];
+      $tipo         = $info_usuario['tipo'      ];
       $status       = $info_usuario['estatus'   ];
 
       $bUsuario  =  Usuario::create([
@@ -32,6 +33,7 @@ class UsuarioController extends Controller
         "contrasena" => $contrasena,
         "nombre"     => $nombre,
         "apellido"   => $apellido,
+        "tipo"       => $tipo,
         "estatus"    => $status
       ]);
       
@@ -51,7 +53,7 @@ class UsuarioController extends Controller
 
       $id_usuario = $request->id_usuario;
 
-      if(Producto::where('id_usuario',$id_usuario)->exists()){
+      if(Usuario::where('id_usuario',$id_usuario)->exists()){
         
          $usuario = Usuario::where('id_usuario',$id_usuario)->first();
          $usuario->delete();
@@ -76,6 +78,7 @@ class UsuarioController extends Controller
       $contrasena   = $info_usuario['contrasena'];
       $nombre       = $info_usuario['nombre'    ];
       $apellido     = $info_usuario['apellido'  ];
+      $tipo         = $info_usuario['tipo'      ];
       $status       = $info_usuario['estatus'   ];
 
 
@@ -86,6 +89,7 @@ class UsuarioController extends Controller
           "contrasena" => $contrasena,
           "nombre"     => $nombre    ,
           "apellido"   => $apellido  ,
+          "tipo"       => $tipo      ,
           "estatus"    => $status
         ]);
 

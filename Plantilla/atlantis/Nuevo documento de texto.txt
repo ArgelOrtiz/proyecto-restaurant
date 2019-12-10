@@ -1,0 +1,6 @@
+Ventajas de la distribución de los servicios
+
+arquitectura SOA y patron de diseño mvc
+
+3 servicios
+

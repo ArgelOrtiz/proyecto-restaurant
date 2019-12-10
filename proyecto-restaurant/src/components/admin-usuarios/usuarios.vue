@@ -20,7 +20,7 @@
       </div>
     </section>
     <!--DataTable-->
-    <section class="probootstrap-section " style="background-image: url(/assets/dist/img/slider_2.jpg);">
+    <section class="probootstrap-section " style=" background-color:#903479;">
       <div class="container">
         <div class="row">
           <b-col lg="12">
@@ -38,7 +38,7 @@
               </thead>
               <tbody>
                 <tr
-                  v-for="(user,index) in users"
+                  v-for="(user,index) in usuarios"
                   :key="index"
                 >
                   <th scope="row">{{user.id_usuario}}</th>
@@ -252,12 +252,6 @@
         class="btn btn-danger"
         @click="cancelar_edicion()"
       >Cancelar</button>
-      <button
-        align="left"
-        slot="button"
-        class="btn btn-info"
-        @click="resetModal()"
-      >Limpiar</button>
     </sweet-modal>
   </div>
 </template>
@@ -370,13 +364,31 @@ export default {
       this.$refs.modal_update.open();
     },
     editar_usuario: async function () {
+      
+      let rol = this.edicion_usuario_data.tipo;
+      var tipoUsr = 0;
+      switch (rol) {
+        case "Mesero":
+          tipoUsr = 1;
+          break;
+        case "Cocinero":
+          tipoUsr = 2;
+          break;
+        case "Administrador":
+          tipoUsr = 3;
+          break;
+        default:
+          tipoUsr = 1;
+          break;
+      }
+      
       var usrEdit = {
         id_usuario: this.edicion_usuario_data.id_usuario,
         usuario: this.edicion_usuario_data.usuario,
         contrasena: this.edicion_usuario_data.contrasena,
         nombre: this.edicion_usuario_data.nombre,
         apellido: this.edicion_usuario_data.apellido,
-        tipo: this.edicion_usuario_data.tipo,
+        tipo: tipoUsr,
         estatus: this.edicion_usuario_data.estatus
       };
 
