@@ -10,7 +10,8 @@ const productos = () => axios.get('get-productos');
 const nuevo_producto = (info_producto) => axios.post(`nuevo-producto`,qs.stringify({producto : info_producto}))
 const eliminar_producto = (id_producto) => axios.post(`eliminar-producto`,qs.stringify({id_producto : id_producto}))
 const editar_producto = (info_producto) => axios.post(`editar-producto`,qs.stringify({producto : info_producto}))
-
+const comandas = () => axios.get('get-comandas');
+const comandasProducto = () => axios.get('get-comandas-productos');
 export default {
     // editar,
     // cosultar,
@@ -18,5 +19,7 @@ export default {
     productos,
     nuevo_producto,
     eliminar_producto,
-    editar_producto
+    editar_producto,
+    comandas,
+    comandasProducto
 }

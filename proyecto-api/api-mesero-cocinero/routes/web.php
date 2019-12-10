@@ -26,3 +26,5 @@ Route::get('/get-productos', 'ProductoController@get_productos')->name('get-prod
 Route::post('/nuevo-producto', 'ProductoController@nuevo_producto')->name('nuevo-producto');
 Route::post('/eliminar-producto', 'ProductoController@eliminar_producto')->name('eliminar-producto');
 Route::post('/editar-producto', 'ProductoController@editar_producto')->name('editar-producto');
+Route::get('/get-comandas','ComandController@get_comandas')->name('get-comandas');
+Route::get('/get-comandas-productos','ComandaProductoController@get_comandas_producto')->name('get-comandas-productos');
