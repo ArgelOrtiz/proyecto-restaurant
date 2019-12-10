@@ -1,5 +1,6 @@
 <template>
   <div>
+  <h1>JAJArgel</h1>
     <section class="probootstrap-section">
       <!-- contenido -->
       <div class="container">
